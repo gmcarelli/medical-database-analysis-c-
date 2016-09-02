@@ -11,7 +11,7 @@
 #include <string>
 using std::string;
 
-#include <stdint.h>
+#include <cstdint>
 
 class MyImage {
 private:
