@@ -13,7 +13,9 @@ using std::string;
 
 #include <stdint.h>
 
-class MyImage {
+#include "object/Object.h"
+
+class MyImage: public Object {
 public:
 	MyImage();
 	virtual ~MyImage();

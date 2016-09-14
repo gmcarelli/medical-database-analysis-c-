@@ -11,18 +11,25 @@
 #include <string>
 using std::string;
 
+#include <list>
+using std::list;
+
+#include <map>
+using std::map;
+
 #include <Myimage.h>
 
 class Database {
-
 public:
 	Database();
 	virtual ~Database();
-	bool connect();
-	void disconnect();
-	bool insert();
-	bool update();
-	object searchById();
+	virtual bool connect() = 0;
+	virtual void disconnect() = 0;
+	virtual bool insert(string table, map<string, MyImage> values) = 0;
+	virtual bool update(string table, map<string, MyImage> values) = 0;
+	virtual bool deleteRow(string table, string column, int id) = 0;
+	virtual MyImage searchById(int imageId) = 0;
+	virtual list<MyImage> listAll() = 0;
 protected:
 	string databaseName;
 	string host;
