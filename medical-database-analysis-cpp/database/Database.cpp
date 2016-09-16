@@ -8,7 +8,7 @@
 #include "Database.h"
 
 Database::Database() {
-	// TODO Auto-generated constructor stub
+	this->port = 0;
 
 }
 
