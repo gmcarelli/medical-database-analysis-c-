@@ -17,23 +17,27 @@ using std::list;
 #include <map>
 using std::map;
 
-#include <Myimage.h>
+#include "model/MyImage.h"
+#include "object/Object.h"
 
 class Database {
 public:
 	Database();
+	Database(string databaseName, string username, string password, string host, int port);
+	//Database(Properties properties);
+	Database(string propertiesPath);
 	virtual ~Database();
 	virtual bool connect() = 0;
 	virtual void disconnect() = 0;
-	virtual bool insert(string table, map<string, MyImage> values) = 0;
-	virtual bool update(string table, map<string, MyImage> values) = 0;
+	virtual bool insert(string table, map<string, Object> values) = 0;
+	virtual bool update(string table, map<string, Object> values) = 0;
 	virtual bool deleteRow(string table, string column, int id) = 0;
 	virtual MyImage searchById(int imageId) = 0;
 	virtual list<MyImage> listAll() = 0;
 protected:
 	string databaseName;
 	string host;
-	string port;
+	int port;
 	string username;
 	string password;
 };

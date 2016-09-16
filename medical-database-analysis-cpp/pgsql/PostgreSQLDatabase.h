@@ -10,12 +10,15 @@
 
 #include "database/Database.h"
 
+#include "/usr/include/postgresql/libpq-fe.h"
+
 class PostgreSQLDatabase: public Database {
 public:
 	PostgreSQLDatabase();
 	virtual ~PostgreSQLDatabase();
 
 private:
+	PGconn *connection = NULL;
 	string createInsertString(string tableName, string table,
 			map<string, MyImage> values) {
 
@@ -29,9 +32,6 @@ private:
 		return "";
 
 	}
-
-
-
 };
 
 #endif /* POSTGRESQLDATABASE_H_ */
